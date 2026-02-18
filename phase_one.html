@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="icon.png" size ="16x16">
+  <title>Richard Huang - Interactive Site Design</title>
+</head>
+<body>
+  <header class="navbar">
+      <div class="nav-left">
+        <img src="icon.png" alt="Richard Huang" class="logo" >
+      </div>
+      <nav class="nav-center">
+          <a href="#marketing">Marketing Plan</a>
+          <a href="#concept">Concept Plan ▾</a>
+          <a href="#more to add">More to add</a>
+      </nav>
+
+      <div class="nav-right">
+          <a href="#contact">Contact</a>
+      </div>
+  </header>
+
+<div id="search-bar">
+  <input type="text" id="search-input" placeholder="Search for a region...">
+  <button id="search-button">SEARCH</button>
+</div>
+<div id="map-frame">
+  <object id="map" data="phase_one.svg" type="image/svg+xml"></object>
+</div>
+
+<div id="cursor-label"></div>
+
+<div id="house-panel">
+    <button id="close-panel">X</button>
+    <div class="slider">
+        <img id="slide-prev" />
+        <button id="prev"><</button>
+        <img id="slide-image" />
+        <button id="next">></button>
+        <img id="slide-next" />
+    </div>
+</div>
+
+<div id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Email: contact@company.com</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Address: 123 Main St, Anytown, USA</p>
+    <div id="sponsors" class="sponsors-section">
+    <!-- <h2>Our Sponsors</h2> -->
+    
+    <img src="icon.PNG" alt="Sponsor 1 Logo" width="400">
+    </div>
+    
+</div>
+
+<script src="phaseone.js"></script>
+</body>
+</html>

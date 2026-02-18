@@ -1,0 +1,334 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents accidental horizontal scrolling */
+  background-color: rgba(154, 147, 132, 0.2);
+}
+
+/* Ensure this is also applied to fix the navbar width issue mentioned earlier */
+* {
+  box-sizing: border-box;
+}
+
+.hover-target {
+  fill: rgba(194, 183, 144, 0.3);
+}
+
+.hover-target:hover {
+  fill: rgba(194, 168, 144, 0.5);
+  transition: fill 0.1s ease;
+}
+.cursor-label {
+  fill: rgba(237, 234, 230, 0.3);
+}
+.cursor-label:hover {
+  fill: rgba(182, 175, 152, 0.3);
+  transition: fill 0.2s ease;
+}
+
+
+
+.hover-target.search-highlight {
+  /* blink slowly for 8 times */
+  animation: blink 2s ease-in-out 5 forwards; 
+}
+
+@keyframes blink {
+  0%, 100% { fill: rgba(126, 90, 47, 0.3); } /* Dim state */
+  50% { fill: rgba(126, 90, 47, 0.6); }      /* Bright state */
+}
+
+#map-frame {
+  width: 60vw;
+  height: 85vh;
+  margin: 80px auto;
+  /* display: flex; */
+  /* align-items: center; */
+  border: 2px solid #333;
+  overflow: hidden; 
+  position: relative;
+  touch-action: none;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease;
+}
+
+.navbar {
+  box-sizing: border-box;
+  position : fixed;
+  width : 100%;
+  top : 0;
+  height: 64px;
+  display: flex;
+  /* font: 2rem 'Arial' bold; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  z-index: 2000;
+  transition: all 0.8s ease;
+  background: rgba(194, 183, 144, 0.85);
+}
+.nav-center a,
+.nav-right a{
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #7e5a2f;
+  font-size: 0.85rem;
+  font-family: 'Arial', sans-serif;
+  /* font-weight: bold; */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  padding: 0 0.2rem;
+}
+.nav-center a:hover, .nav-right a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  transition: all 0.3s ease;
+}
+.nav-left {
+  display: flex;
+  align-items:start;
+  color:#f5f5f5;
+  font-size: 1rem;
+}
+
+.nav-left .logo {
+  /* the picture has to fit inside the navbar */
+  height: 50px;
+  width: auto;
+}
+
+#search-bar {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(194, 183, 144, 0.85);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+}
+
+#search-bar input {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 0.85rem;
+  width: 150px;
+  font: 0.8rem 'Arial';
+  color: #7e5a2f;
+}
+
+#search-bar input:focus {
+  outline: none;
+  border-bottom: 1px solid #7e5a2f;
+}
+
+#search-bar button {
+  background: rgba(126, 90, 47, 0);
+  color: #7e5a2f;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+
+.tooltip {
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    pointer-events: none;
+    background: rgba(194, 183, 144, 0.85);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    display: none;
+    max-width: 220px;
+    font-family: 'Arial', sans-serif;
+    color: #7e5a2f;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.tooltip img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.point {
+    fill: rgb(147, 108, 24);
+    stroke: white;
+    stroke-width: 2px;
+    
+}
+
+.contact-section {
+    color: #7e5a2f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(194, 183, 144, 0.85);
+}
+
+#cursor-label {
+    position: fixed;
+    pointer-events: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7e5a2f;
+    background: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: none;
+    z-index: 2000;
+    font-family: 'Arial', sans-serif;
+}
+
+#house-panel {
+    position: fixed;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #f5f2e8;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
+    transition: bottom 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#house-panel.active {
+    bottom: 0;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.slider img {
+    max-height: 40vh;
+    max-width: 30vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.slider img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* the image should enter from the left  */
+
+#slide-prev {
+    left: 5%;
+    opacity: 1;
+}
+#slide-image {
+    left: 32.5%;
+    opacity: 1;
+    z-index: 2;
+    transition: transform 1s ease;
+}
+#slide-next {
+    right: 5%;
+    opacity: 1;
+}
+
+.slider button {
+    background: rgba(126, 90, 47, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+#prev,
+#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 50px;
+    height: 50px;
+    
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    
+    z-index: 10; /* always above images */
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+
+.slider button:hover {
+    background: rgba(126, 90, 47, 0.8);
+    transition: background 0.2s ease;
+}
+
+
+#close-panel {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7e5a2f;
+    font-weight: bold;
+}
+/* 
+.slide-in-left {
+    animation: slideInLeft 0.5s forwards;
+}
+.slide-in-right {
+    animation: slideInRight 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(100px);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(+100px);
+        opacity: 1;
+    }
+} */
