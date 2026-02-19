@@ -37,25 +37,25 @@ mapObject.addEventListener("load", () => {
         ASHFORD_DRIVE_UNDER: {
             name: "ASHFORD_DRIVE_UNDER",
             slides: [
-                "basketball.jpg",
-                "construction.WEBP",
-                "logo.png"
+                "heartwood.png",
+                "heartwood.png",
+                "heartwood.png"
             ]
         },
         CYPRESS: {
             name: "CYPRESS",
             slides: [
-                "basketball.jpg",
-                "construction.WEBP",
-                "logo.png"
+                "heartwood.png",
+                "heartwood.png",
+                "heartwood.png"
             ]
         },
         PALMETTO: {
             name: "PALMETTO",
             slides: [
-                "basketball.jpg",
-                "construction.WEBP",
-                "logo.png"
+                "heartwood.png",
+                "heartwood.png",
+                "heartwood.png"
             ]
         }
 

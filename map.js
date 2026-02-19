@@ -28,9 +28,9 @@ mapObject.addEventListener("load", () => {
     };
     const regionData = {
         highlight1: {
-            title: "Residence Zone",
-            image: "residence.WEBP",
-            description: "Main manufacturing zone.",
+            title: "Ashford",
+            image: "ashford1.png",
+            description: "Description of Ashford.",
             link: "more.html"
         },
         grass: {

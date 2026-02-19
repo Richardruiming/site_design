@@ -7,24 +7,36 @@
 </head>
 <body>
   <header class="navbar">
-      <div class="nav-left">
-        <img src="icon.png" alt="Richard Huang" class="logo" >
-      </div>
-      <nav class="nav-center">
-          <a href="phase_one.html">Marketing Plan</a>
-          <a href="#concept">Concept Plan</a>
-          <a href="#more to add">More to add</a>
+        <div class="nav-left">
+          <img src="icon.png" alt="Richard Huang" class="logo" >
+        </div>
+        <nav class="nav-center">
+          <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+
+          <li class="dropdown">
+              <a href="#">Concept Plan ▾</a>
+              <ul class="dropdown-menu">
+                  <li><a href="phase_one.html">Phase One</a></li>
+                  <li><a href="interactive_map.html">Phase Two</a></li>
+                  <li><a href="phase_three.html">Phase Three</a></li>
+              </ul>
+          </li>
+
+        <li><a href="#">About</a></li>
+        </ul>
       </nav>
+      
 
       <div class="nav-right">
           <a href="#contact">Contact</a>
       </div>
   </header>
 
-<div id="search-bar">
+<!-- <div id="search-bar">
   <input type="text" id="search-input" placeholder="Search for a region...">
   <button id="search-button">SEARCH</button>
-</div>
+</div> -->
 <div id="map-frame">
   <object id="map" data="regiondefined.svg" type="image/svg+xml"></object>
 </div>
@@ -36,9 +48,9 @@
 
 <div id="contact" class="contact-section">
     <h2>Contact Us</h2>
-    <p>Email: contact@company.com</p>
-    <p>Phone: (123) 456-7890</p>
-    <p>Address: 123 Main St, Anytown, USA</p>
+    <p>Email: rrhuang2@illinois.edu</p>
+    <p>Phone: (217) 954-3965</p>
+    <p>Address: 817 W Clark St, Urbana, IL</p>
     <div id="sponsors" class="sponsors-section">
     <!-- <h2>Our Sponsors</h2> -->
     
